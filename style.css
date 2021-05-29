@@ -1,0 +1,161 @@
+﻿p, button, input {
+    font-size: 1.5em;
+    line-height: 1.4em;
+    color: #333;
+    margin-bottom:1em;
+}
+
+#myfield, #enemyfield {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#myfield div, #enemyfield div {
+    position:absolute;
+    outline-offset: -1px;
+    outline: 1px solid #606060;
+}
+
+#enemyfield {
+    margin-left: 600px;
+}
+
+
+body {
+    background-color: #303030;
+}
+
+.grid-user {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    border: #00a07b solid 1px;
+    margin: 20px;
+}
+
+.grid div {
+    width: 50px;
+    height: 50px;
+    outline-offset: -1px;
+    outline: 1px solid #606060;
+}
+
+.grid-ai {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    border: #a90000 solid 1px;
+    margin: 20px;
+}
+
+#fieldContainer {
+    display: flex;
+}
+
+.grid-display {
+    display: flex;
+    width: 1200px;
+    height: 220px;
+    margin: 20px;
+    border: #3b3b3b solid 2px;
+    flex-wrap: wrap;
+}
+
+.ship {
+    background-color: #606060;
+    margin: 10px;
+    display: flex;
+}
+
+.container40 {
+    width: 200px;
+    height: 50px;
+}
+
+.container40-v {
+    width: 50px;
+    height: 200px;
+    flex-wrap: wrap;
+}
+
+.container30, .container31 {
+    width: 150px;
+    height: 50px;
+}
+
+.container30-v, .container31-v {
+    width: 50px;
+    height: 150px;
+    flex-wrap: wrap;
+}
+
+.container20, .container21, .container22 {
+    width: 100px;
+    height: 50px;
+}
+
+.container20-v, .container21-v, .container22-v {
+    width: 50px;
+    height: 100px;
+    flex-wrap: wrap;
+}
+
+.container10, .container11, .container12, .container13 {
+    width: 50px;
+    height: 50px;
+}
+
+.container10-v, .container11-v, .container12-v, .container13-v {
+    width: 50px;
+    height: 50px;
+    flex-wrap: wrap;
+}
+
+.ship div {
+    width: 50px;
+    height: 50px;
+}
+
+.grid-user .ship40 {
+    background-color: #38acb0;
+}
+
+.grid-user .ship30, .grid-user .ship31 {
+    background-color: #28a761;
+}
+
+.grid-user .ship20, .grid-user .ship21, .grid-user .ship22 {
+    background-color: #41509b;
+}
+
+.grid-user .ship10, .grid-user .ship11, .grid-user .ship12, .grid-user .ship13 {
+    background-color: #ba780d;
+}
+
+/*.ship40 {*/
+/*    background-color: #38acb0;*/
+/*}*/
+
+/*.ship30, .ship31 {*/
+/*    background-color: #28a761;*/
+/*}*/
+
+/*.ship20, .ship21, .ship22 {*/
+/*    background-color: #41509b;*/
+/*}*/
+
+/*.ship10, .ship11, .ship12, .ship13 {*/
+/*    background-color: #ba780d;*/
+/*}*/
+
+.boom {
+    background-color: #940000 !important;
+}
+
+.miss {
+    background-color: #535353 !important;
+}
