@@ -1,30 +1,9 @@
-﻿p, button, input {
-    font-size: 1.5em;
-    line-height: 1.4em;
-    color: #333;
-    margin-bottom:1em;
-}
-
-#myfield, #enemyfield {
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#myfield div, #enemyfield div {
-    position:absolute;
-    outline-offset: -1px;
-    outline: 1px solid #606060;
-}
-
-#enemyfield {
-    margin-left: 600px;
-}
-
-
-body {
+﻿body {
     background-color: #303030;
+    margin: auto;
+    width: 85%;
+    border: 3px solid #7a7a7a;
+    padding: 10px;
 }
 
 .grid-user {
@@ -32,8 +11,8 @@ body {
     height: 500px;
     display: flex;
     flex-wrap: wrap;
-    border: #00a07b solid 1px;
-    margin: 20px;
+    border: #00c899 solid 1px;
+    margin: 10px auto;
 }
 
 .grid div {
@@ -48,21 +27,29 @@ body {
     height: 500px;
     display: flex;
     flex-wrap: wrap;
-    border: #a90000 solid 1px;
-    margin: 20px;
+    border: #de0000 solid 1px;
+    margin: 10px auto;
 }
 
 #fieldContainer {
     display: flex;
 }
 
+.hidden-info {
+    border: 2px solid #585858;
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+}
+
 .grid-display {
     display: flex;
-    width: 1200px;
     height: 220px;
-    margin: 20px;
     border: #3b3b3b solid 2px;
     flex-wrap: wrap;
+    margin: auto;
+    padding: 10px;
 }
 
 .ship {
@@ -153,9 +140,40 @@ body {
 /*}*/
 
 .boom {
-    background-color: #940000 !important;
+    background-color: #9d3434 !important;
 }
 
 .miss {
     background-color: #535353 !important;
+}
+
+#turn {
+    font-family: Century Gothic, serif;
+    color: #cbcbcb;
+    font-size: 30px;
+    height: 21px;
+    margin: auto;
+    display: block;
+}
+
+#info {
+    display: block;
+    font-family: Century Gothic, serif;
+    color: #cbcbcb;
+    font-size: 16px;
+    height: 21px;
+    outline: none;
+    margin: 10px 0;
+    padding: 5px 0;
+}
+
+#start, #rotate {
+    border: #cbcbcb 1px solid;
+    text-align: center;
+    padding: 10px;
+    background-color: #404040;
+    font-family: Century Gothic, serif;
+    color: #cbcbcb;
+    font-size: 16px;
+    margin: 5px;
 }

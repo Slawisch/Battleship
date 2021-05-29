@@ -368,7 +368,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     
     function playGame() {
-        if (isGameOver) return
+        if (isGameOver || displayGrid.childElementCount > 0) return
         if (currentPlayer === 'user') {
             turnDisplay.innerHTML = 'Your Go'
             aiCells.forEach(square => square.addEventListener('click', function(e) {
@@ -383,18 +383,20 @@ document.addEventListener('DOMContentLoaded', ()=>{
     startButton.addEventListener('click', playGame)
 
     function revealSquare(cell) {
-        if (!cell.classList.contains('boom')) {
-            if (cell.classList.contains('ship40')) ship40Count++
-            if (cell.classList.contains('ship30')) ship30Count++
-            if (cell.classList.contains('ship31')) ship31Count++
-            if (cell.classList.contains('ship20')) ship20Count++
-            if (cell.classList.contains('ship21')) ship21Count++
-            if (cell.classList.contains('ship22')) ship22Count++
-            if (cell.classList.contains('ship10')) ship10Count++
-            if (cell.classList.contains('ship11')) ship11Count++
-            if (cell.classList.contains('ship12')) ship12Count++
-            if (cell.classList.contains('ship13')) ship13Count++
-        }
+        if(cell.classList.contains('boom') || cell.classList.contains('miss'))
+            return
+        
+        if (cell.classList.contains('ship40')) ship40Count++
+        if (cell.classList.contains('ship30')) ship30Count++
+        if (cell.classList.contains('ship31')) ship31Count++
+        if (cell.classList.contains('ship20')) ship20Count++
+        if (cell.classList.contains('ship21')) ship21Count++
+        if (cell.classList.contains('ship22')) ship22Count++
+        if (cell.classList.contains('ship10')) ship10Count++
+        if (cell.classList.contains('ship11')) ship11Count++
+        if (cell.classList.contains('ship12')) ship12Count++
+        if (cell.classList.contains('ship13')) ship13Count++
+        
         if (cell.classList.contains('taken')) {
             cell.classList.add('boom')
         } else {
@@ -535,26 +537,29 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 x = parseInt(hitCell[1])
                 y = parseInt(hitCell[0])
 
-                if(y-1 >= 0 && field[y-1][x] === 2)
-                    if(y+1 < 10 && field[y+1][x] === 0)
+                console.log(hitCell)
+                console.log(x + ' - ' + y)
+                
+                if(y-1 >= 0 && (field[y-1][x] === 2 || field[y-1][x] === 3))
+                    if(y+1 <= 9 && field[y+1][x] === 0)
                         return ''+(y+1)+(x)
-                if(y+1 < 10 && field[y+1][x] === 2)
+                if(y+1 <= 9 && (field[y+1][x] === 2 || field[y+1][x] === 3))
                     if(y-1 >= 0 && field[y-1][x] === 0)
                         return ''+(y-1)+(x)
-                if(x-1 >= 0 && field[y][x-1] === 0)
-                    if(x+1 < 10 && field[y][x+1] === 0)
+                if(x-1 >= 0 && (field[y][x-1] === 2 || field[y][x-1] === 3))
+                    if(x+1 <= 9 && field[y][x+1] === 0)
                         return ''+(y)+(x+1)
-                if(x+1 < 10 && field[y][x+1] === 0)
+                if(x+1 <= 9 && (field[y][x+1] === 2 || field[y][x+1] === 3))
                     if(x-1 >= 0 && field[y][x-1] === 0)
                         return ''+(y)+(x-1)
                 
                 if(y-1 >= 0 && field[y-1][x] === 0)
                     return ''+(y-1)+(x)
-                if(y+1 < 10 && field[y+1][x] === 0)
+                if(y+1 <= 9 && field[y+1][x] === 0)
                     return ''+(y+1)+(x)
                 if(x-1 >= 0 && field[y][x-1] === 0)
                     return ''+(y)+(x-1)
-                if(x+1 < 10 && field[y][x+1] === 0)
+                if(x+1 <= 9 && field[y][x+1] === 0)
                     return ''+(y)+(x+1)
                 
                 field[y][x] = 3
@@ -734,10 +739,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
         
         if ((ship40Count + ship30Count + ship31Count + ship20Count + ship21Count + ship22Count + ship10Count + ship11Count + ship12Count + ship13Count) === 100) {
             infoDisplay.innerHTML = "YOU WIN"
+            infoDisplay.style.color = '#2d9451'
             gameOver()
         }
         if ((aiShip40Count + aiShip30Count + aiShip31Count + aiShip20Count + aiShip21Count + aiShip22Count + aiShip10Count + aiShip11Count + aiShip12Count + aiShip13Count) === 100) {
             infoDisplay.innerHTML = "COMPUTER WINS"
+            infoDisplay.style.color = '#ae252b'
             gameOver()
         }
     }
